@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Personagem from '@/data/serie'
 import styles from './page.module.css'
@@ -20,7 +21,7 @@ function Serie() {
     }, [])
     return (
         <div className={styles.tudo}>
-            <h1 className={styles.titulo}>STRANGER THINGS</h1>
+            <h1 className={styles.titulo}><strong>STRANGER THINGS</strong></h1>
             <div className={styles.quasetd}>
                 {dadosApi ? (
                     dadosApi.map((info) =>
