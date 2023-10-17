@@ -1,0 +1,21 @@
+
+.titulo{
+        text-align: center;
+        font-size: 80px;
+        padding: 10px;
+        color: rgb(141, 4, 4);
+    }
+    .quasetd{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .tudo{
+        background-color: rgb(0, 0, 0);
+    }
+    .descricao{
+        color: white;
+    }
+    .card1{
+    }
