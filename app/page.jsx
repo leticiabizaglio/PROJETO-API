@@ -7,62 +7,114 @@ import styles from './page.module.css'
 
 export default function Home() {
 
-const [dadosApi, setdadosApi] = useState('');
-useEffect(() => {
+  const [dadosApi, setdadosApi] = useState('');
+  useEffect(() => {
     const AnimeFetch = async () => {
-        try {
-            const dados = await Personagem();
-            setdadosApi(dados);
-            console.log(dados)
-        } catch (e) {
-            throw e;
-        }
+      try {
+        const dados = await Personagem();
+        setdadosApi(dados);
+        console.log(dados)
+      } catch (e) {
+        throw e;
+      }
     }
     AnimeFetch()
-}, [])
-return (
+  }, [])
+  return (
     <div className={styles.tudo}>
-        <h1 className={styles.titulo}><strong>AKATSUKI</strong></h1>
-        <div className={styles.quasetd}>
-            {dadosApi ? (
-                dadosApi.akatsuki.map((info) =>
-                    info.name === "Jūgo" ? (
-                        null
-                    ) :
-                    info.name === "Kabuto Yakushi" ? (
-                        null
-                    ) :
-                    info.name === "Karin" ? (
-                        null
-                    ) :
-                    info.name === "Hinoki" ? (
-                        null
-                    ) :
+      <h1 className={styles.titulo}><strong>AKATSUKI</strong></h1>
+      <div className={styles.quasetd}>
+        {dadosApi ? (
+          dadosApi.akatsuki.map((info) =>
+            info.name === "Jūgo" ? (
+              null
+            ) :
+              info.name === "Kabuto Yakushi" ? (
+                null
+              ) :
+                info.name === "Karin" ? (
+                  null
+                ) :
+                  info.name === "Chibi" ? (
+                    null
+                  ) :
+                  info.name === "Hinoki" ? (
+                    null
+                  ) :
+                  info.name === "Hinoki" ? (
+                    null
+                  ) :
+                  info.name === "Kakuzu's Partner" ? (
+                    null
+                  ) :
+                  info.name === "Kie" ? (
+                    null
+                  ) :
+                  info.name === "Kyōya" ? (
+                    null
+                  ) :
+                  info.name === "Himeyuri" ? (
+                    null
+                  ) :
+                  info.name === "Ginji" ? (
+                    null
+                  ) :
+                  info.name === "Hidan" ? (
+                    null
+                  ) :
 
-                                    (
-                                        <div className={styles.card1} key={info.id}>
-                                            <h1 className={styles.nome}>{info.name}</h1>
-                                            {
-                                                info.images.map((img) => (
-                                                    <img className={styles.img} src={info.images} width={400} height={400} />
-                                                ))
-                                            }
+                  info.name === "Demonic Statue of the Outer Path" ? (
+                    null
+                  ) :
+                  info.name === "Daibutsu" ? (
+                    null
+                  ) :
 
 
-                                        </div>
-                                    )
+                    (
+                      <div className={styles.card1} key={info.id}>
+                        <h1 className={styles.nome}>{info.name}</h1>
+                        {
+                          info.images.map((img) => (
+                            <img className={styles.img} src={info.images} width={400} height={400} />
+                          ))
+                        }
+
+                        {
+                          !info.natureType ? (
+                            null
+                          ) :
+                            info.natureType.map((tipo) =>
+                            (
+                              <p className={styles.descricao}>Natureza: {tipo}</p>
+                            ))
+                        }
+                          {
+                          !info.uniqueTraits ? (
+                            null
+                          ) :
+                            info.uniqueTraits.map((tracos) =>
+                            (
+                              <p className={styles.descricao}>Traços únicos: {tracos}</p>
+                            ))
+                        }
 
 
-                )
 
-            ) : (
-                <p>Loading...</p>
-            )}
-        </div>
+                      </div>
+                    )
+
+
+          )
+
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
-);
+  );
 }
 
-   
-  
+
+
 
