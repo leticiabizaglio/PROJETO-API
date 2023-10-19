@@ -1,10 +1,10 @@
-import Serie from "./Serie/page";
+import Anime from "./Anime/page";
 
 
 export default function Home() {
   return (
     <>
-    <Serie/>
+    <Anime/>
     </>
   )
 }

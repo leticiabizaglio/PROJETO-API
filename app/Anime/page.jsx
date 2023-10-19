@@ -1,14 +1,14 @@
 'use client'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import Personagem from '@/data/serie'
+import Personagem from '@/data/anime'
 import styles from './page.module.css'
 
-function Serie() {
+function Anime() {
 
     const [dadosApi, setdadosApi] = useState('');
     useEffect(() => {
-        const SerieFetch = async () => {
+        const AnimeFetch = async () => {
             try {
                 const dados = await Personagem();
                 setdadosApi(dados);
@@ -17,7 +17,7 @@ function Serie() {
                 throw e;
             }
         }
-        SerieFetch()
+        AnimeFetch()
     }, [])
     return (
         <div className={styles.tudo}>
@@ -71,4 +71,4 @@ function Serie() {
     );
 }
 
-export default Serie;
+export default Anime ;
