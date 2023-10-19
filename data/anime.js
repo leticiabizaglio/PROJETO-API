@@ -1,7 +1,7 @@
 'use client'
 import axios from 'axios';
 
-const Serie = async () => {
+const Anime = async () => {
 
     const URL_API = 'https://www.narutodb.xyz/api/akatsuki';
     try{
@@ -11,4 +11,4 @@ const Serie = async () => {
     throw error;
 }
 }
-export default Serie;
+export default Anime;
