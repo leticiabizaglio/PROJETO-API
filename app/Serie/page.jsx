@@ -25,45 +25,30 @@ function Serie() {
             <div className={styles.quasetd}>
                 {dadosApi ? (
                     dadosApi.akatsuki.map((info) =>
-                        info.name === "Sam Mayfield" ? (
+                        info.name === "Jūgo" ? (
                             null
                         ) :
-                        info.name === "Saint John" ? (
+                        info.name === "Kabuto Yakushi" ? (
                             null
                         ) :
-                        info.name === "Mr. Holland" ? (
+                        info.name === "Karin" ? (
                             null
                         ) :
-                        info.name === "Martin Brenner" ? (
-                            null
-                        ) :
-                        info.name === "Mrs. Walsh" ? (
-                            null
-                        ) :
-                        info.name === "Nerdy Tech" ? (
-                            null
-                        ) :
-                        info.name === "Chester" ? (
-                            null
-                        ) :
-                        info.name === "Diane" ? (
-                            null
-                        ) :
-                        info.name === "Eugene McCorkle" ? (
+                        info.name === "Hinoki" ? (
                             null
                         ) :
                         
+                        
                             (
-                                <div className={styles.card1} key={info._id}>
+                                <div className={styles.card1} key={info.id}>
                                     <h1 className={styles.nome}>{info.name}</h1>
+                                    {
+                                        info.images.map((img) => (
+                                            <img className={styles.img} src={info.images} width={400} height={400} />
+                                        ))
+                                    }
 
-                                    <img className={styles.img} src={info.photo} width={400} height={400} />
-                                    <p className={styles.descricao}><strong>Status: </strong>{info.status}</p>
-                                    <p className={styles.descricao}><strong>Nascimento: </strong>{info.born}</p>
-                                    <p className={styles.descricao}><strong>Gênero: </strong>{info.gender}</p>
-                                    <p className={styles.descricao}><strong>Cor dos olhos: </strong>{info.eyeColor}</p>
-                                    <p className={styles.descricao}><strong>Cor dos cabelos: </strong>{info.hairColor}</p>
-                                    <p className={styles.descricao}><strong>Retratado por: </strong>{info.portrayedBy}</p>
+                                    
 
                                     {/* <div className={styles.adicionais}>
                                     {info.map((stranger) => (
