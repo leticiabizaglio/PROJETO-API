@@ -3,10 +3,10 @@ import axios from 'axios';
 
 const Serie = async () => {
 
-    const URL_API = 'https://stranger-things-api.fly.dev/api/v1/characters';
+    const URL_API = 'https://www.narutodb.xyz/api/akatsuki';
     try{
         const resposta = await axios.get(URL_API);
-        return resposta.data
+        return resposta.akatsuki
     } catch (error){
     throw error;
 }

@@ -21,10 +21,10 @@ function Serie() {
     }, [])
     return (
         <div className={styles.tudo}>
-            <h1 className={styles.titulo}><strong>STRANGER THINGS</strong></h1>
+            <h1 className={styles.titulo}><strong>AKATSUKI</strong></h1>
             <div className={styles.quasetd}>
                 {dadosApi ? (
-                    dadosApi.map((info) =>
+                    dadosApi.akatsuki.map((info) =>
                         info.name === "Sam Mayfield" ? (
                             null
                         ) :
