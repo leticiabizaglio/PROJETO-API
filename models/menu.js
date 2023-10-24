@@ -6,8 +6,6 @@ import Header from '@/app/components/header/Header';
 import Footer from '@/app/components/footer/Footer';
 
 
-
-
 function Menu() {
     const [dadosApi, setdadosApi] = useState('');
     useEffect(() => {
