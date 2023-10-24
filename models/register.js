@@ -37,6 +37,7 @@ export default function Cadastro() {
     setListAkatsuki(instanciaLista.getListaTsuki()); 
   };
 
+  const apidata = new ApiData();
   useEffect(() => {
     const apidata = async () => {
       try {
