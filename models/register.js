@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from 'react'
 import { Personagem } from './akatsuki'
 import ListAkatsuki from './akatsukiList'
-import ApiData from '../data/anime'
+import ApiDataAnime from '../data/anime'
 import styles from '@/app/page.module.css'
 import Header from '@/app/components/header/Header';
 import Footer from '@/app/components/footer/Footer';
 
-const listAkatsuki = new ListAkatsuki;
+const listAkatsukiA = new ListAkatsuki;
 
 export default function Cadastro() {
     const [listAkatsuki, setListAkatsuki] = useState([]); 
@@ -25,7 +25,7 @@ export default function Cadastro() {
         setListAkatsuki(updateList);
     }
 
-    listAkatsuki.addPersonagem(newCH);
+    listAkatsukiA.addPersonagem(newCH);
 
     setName("");
     setImage("");
@@ -33,24 +33,42 @@ export default function Cadastro() {
     setTracos("");
    }
    const remove = (personagem) => {
-    instanciaLista.removeTsuki(personagem); 
-    setListAkatsuki(instanciaLista.getListaTsuki()); 
+    listAkatsukiA.removeTsuki(personagem); 
+    setListAkatsuki(listAkatsukiA.getListaTsuki()); 
   };
 
-  const apidata = new ApiData();
   useEffect(() => {
-    const apidata = async () => {
+    const fetchdata = async () => {
       try {
-        const data = await apiData();
+        const data = await ApiDataAnime();
         setApiData(data);
       } catch (error) {
-        <p>ERROR</p>
+        return error
       }
     };
-    apidata();
+    fetchdata();
   }, []);
 
+  useEffect(() => {
+    if(apiData && apiData.data){
+        apiData.data.forEach((personagemData) => {
+            const novop = new Personagem(
+                personagemData.name,
+                personagemData.image,
+                personagemData.tracos,
+                personagemData.tipo
+            );
+            listAkatsukiA.addPersonagem(novop)
 
+        });
+        const updatePerso =  [...listAkatsuki,...listAkatsukiA.getListaTsuki()];
+        setListAkatsuki(updatePerso)
+    }
+  }, [apiData]);
+
+  return(
     <>
+    
     </>
+  )
 }
