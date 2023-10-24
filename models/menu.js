@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import Personagem from '@/data/anime'
 import styles from '@/app/page.module.css'
+import Footer from '@/app/components/footer/Footer';
+import Header from '@/app/components/header/Header';
 
 
 
@@ -21,6 +23,7 @@ function Menu() {
     }, [])
   return (
     <div>
+      <Header/>
         <div className={styles.tudo}>
 <h1 className={styles.titulo}><strong>AKATSUKI</strong></h1>
 <div className={styles.quasetd}>
@@ -110,7 +113,9 @@ function Menu() {
   ) : (
     <p>Loading...</p>
   )}
+  
 </div>
+<Footer/>
 </div>
     </div>
   )
