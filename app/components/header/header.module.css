@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(143, 3, 3) ;
+    padding: 30px;
+
+    
+    
+ }
+ .geral{
+     display: flex;
+     margin: 30px;
+     padding: 15px ;
+     text-decoration: none;
+     color: white;
+ 
+ }
+ .geral:hover{
+    background-color: rgb(167, 28, 28) ;
+     color: white;
+     border-radius: 4px;
+     
+ 
+ }

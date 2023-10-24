@@ -4,6 +4,7 @@ import Personagem from '@/data/anime'
 import styles from '@/app/page.module.css'
 
 
+
 function Menu() {
     const [dadosApi, setdadosApi] = useState('');
     useEffect(() => {
