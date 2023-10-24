@@ -7,6 +7,7 @@ import Footer from '@/app/components/footer/Footer';
 
 
 
+
 function Menu() {
     const [dadosApi, setdadosApi] = useState('');
     useEffect(() => {
@@ -113,8 +114,13 @@ function Menu() {
   ) : (
     <p>Loading...</p>
   )}
-  <Footer/>
+
+  
+
+ 
+
 </div>
+<Footer/>
 </div>
     </div>
   )
