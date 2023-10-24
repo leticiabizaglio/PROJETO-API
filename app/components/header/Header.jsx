@@ -5,10 +5,10 @@ import Image from "next/image"
 const Header = () =>{
     return(
         <div className={styles.header}>
-            
-            <Link href={"/Serie"} className={styles.geral}>Menu</Link>
-            <Image src="/akatsuki.png" alt="Akatsuki" width={90} height={90}/>
-            <Link href={"/cadastro"} className={styles.geral}>Cadastro</Link>
+            <Link href={"/"} className={styles.geral}>
+            <Image src="/akatsuki.png" alt="Akatsuki" width={100} height={100} className={styles.img}/>
+            </Link>
+          
             
         </div>
     )
