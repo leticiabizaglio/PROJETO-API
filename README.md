@@ -1,4 +1,4 @@
-O objetivo deste site é mostrar como funciona a API. Toda a documentação da API estará disponível neste link: [https://www.narutodb.xyz/api/akatsuki].
+O objetivo deste site é mostrar a funcionalidade da API. Toda a documentação da API estará disponível neste link: [https://www.narutodb.xyz/api/akatsuki].
 
 ## Primeiro passos no terminal
 ```bash
@@ -39,8 +39,27 @@ Pasta (data):
 <br>
 Destinada a arquivos javascript, e armazenamento de informações da API.
 
+Arquivo (akatsuki.js):
+<br>
+Contém exportação da classe "Personagem". E os personagens terão:
+- nome (name)
+- img (imagem do personagem)
+- tipo (natureza)
+- tracos (traços únicos)
+<br>
+Arquivo (anime.js)
+Este arquivo fornece as informações da API por meio da importação do Link. E exportação para utilizar em outras páginas.
+
+
 Pasta (models):
 <br>
 Destinada a arquivos javascript, por sua vez, orientados a objetos e/ou classes. 
+
+Arquivo (menu.js):
+<br>
+Este arquivo está fornecendo as informações dos personagens na tela. Também temos informações ocultas como:
+<br> 
+- Personagens: Jūgo, Kabuto Yakushi, Karin, Chibi, Hinoki, Kakuzu's Partner, Kie, Kyōya, Himeyuri, Ginji, Hidan
+
 
 
