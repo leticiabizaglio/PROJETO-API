@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react'
 import Personagem from '@/data/anime'
 import styles from '@/app/page.module.css'
-import Footer from '@/app/components/footer/Footer';
 import Header from '@/app/components/header/Header';
+import Footer from '@/app/components/footer/Footer';
+
 
 
 
@@ -113,7 +114,11 @@ function Menu() {
   ) : (
     <p>Loading...</p>
   )}
+
   
+
+ 
+
 </div>
 <Footer/>
 </div>
