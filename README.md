@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+O objetivo deste site é mostrar a funcionalidade da API. Toda a documentação da API estará disponível neste link: [https://www.narutodb.xyz/api/akatsuki].
 
-## Getting Started
-
-First, run the development server:
-
+## Primeiro passos no terminal
 ```bash
+1.
+npm i
+
+2.
+npm i axios ( install the API)
+
+3.
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Abra [http://localhost:3000](http://localhost:3000), o número "3000" pode mudar de acordo com a porta.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Este projeto usa [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) para otimizar e carregar automaticamente o Inter, uma fonte personalizada do Google.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Passo a passo
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Estruturação:
+<br>
+Criar pastas e modificar estruturação de pastas (caso seja necessário). Como por exemplo:
+<br>
+"page.js" => "page.jsx"
+<br>
+"layout.js" => "layout.jsx"
+<br>
 
-## Learn More
+Você pode apagar os códigos e a estilização feita pela "Vercel".
 
-To learn more about Next.js, take a look at the following resources:
+### Observação:
+A pasta "components" armazena todos os componentes, trechos de códigos importantes como Footer e Header. 
+O interessante de usar componentes é a simplificação do código através de um Link, organização e agilidade.
+Isso faz com que os desenvolvedores sejam visto de forma profissional.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Principais Pastas:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Pasta (data):
+<br>
+Destinada a arquivos javascript, e armazenamento de informações da API.
 
-## Deploy on Vercel
+Arquivo (akatsuki.js):
+<br>
+Contém exportação da classe "Personagem". E os personagens terão:
+- nome (name)
+- img (imagem do personagem)
+- tipo (natureza)
+- tracos (traços únicos)
+<br>
+Arquivo (anime.js)
+Este arquivo fornece as informações da API por meio da importação do Link. E exportação para utilizar em outras páginas.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Pasta (models):
+<br>
+Destinada a arquivos javascript, por sua vez, orientados a objetos e/ou classes. 
+
+Arquivo (menu.js):
+<br>
+Este arquivo está fornecendo as informações dos personagens na tela. Também temos informações ocultas como:
+<br> 
+- Personagens: Jūgo, Kabuto Yakushi, Karin, Chibi, Hinoki, Kakuzu's Partner, Kie, Kyōya, Himeyuri, Ginji, Hidan
+
+
+
