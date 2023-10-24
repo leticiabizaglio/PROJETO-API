@@ -5,5 +5,6 @@ export class Personagem{
         this.img = img;
         this.tipo = tipo;
         this.tracos = tracos;
+        this.clothe = "black"
     }
 }
