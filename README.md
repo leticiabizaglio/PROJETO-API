@@ -1,18 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+The purpose of this site is to show you how the API works. All API documentation will be available at this link: [https://www.narutodb.xyz/api/akatsuki].
 
-## Getting Started
-
-First, run the development server:
-
+## Starting
 ```bash
+1.
+npm i
+
+2.
+npm i axios ( install the API)
+
+3.
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
+Você pode começar editando o "page.js" para "page.jsx" assim como o "layout.js" para "layout.jsx".
+
+Você pode apagar os códigos feitos nas páginas "page" e na "global".
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
