@@ -1,6 +1,6 @@
-The purpose of this site is to show you how the API works. All API documentation will be available at this link: [https://www.narutodb.xyz/api/akatsuki].
+O objetivo deste site é mostrar como funciona a API. Toda a documentação da API estará disponível neste link: [https://www.narutodb.xyz/api/akatsuki].
 
-## Starting
+## Primeiro passos no terminal
 ```bash
 1.
 npm i
@@ -10,29 +10,37 @@ npm i axios ( install the API)
 
 3.
 npm run dev
-
 ```
-Você pode começar editando o "page.js" para "page.jsx" assim como o "layout.js" para "layout.jsx".
+Abra [http://localhost:3000](http://localhost:3000), o número "3000" pode mudar de acordo com a porta.
 
-Você pode apagar os códigos feitos nas páginas "page" e na "global".
+Este projeto usa [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) para otimizar e carregar automaticamente o Inter, uma fonte personalizada do Google.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Passo a passo
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Estruturação:
+<br>
+Criar pastas e modificar estruturação de pastas (caso seja necessário). Como por exemplo:
+<br>
+"page.js" => "page.jsx"
+<br>
+"layout.js" => "layout.jsx"
+<br>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Você pode apagar os códigos e a estilização feita pela "Vercel".
 
-## Learn More
+### Observação:
+A pasta "components" armazena todos os componentes, trechos de códigos importantes como Footer e Header. 
+O interessante de usar componentes é a simplificação do código através de um Link, organização e agilidade.
+Isso faz com que os desenvolvedores sejam visto de forma profissional.
 
-To learn more about Next.js, take a look at the following resources:
+2. Principais Pastas:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pasta (data):
+<br>
+Destinada a arquivos javascript, e armazenamento de informações da API.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Pasta (models):
+<br>
+Destinada a arquivos javascript, por sua vez, orientados a objetos e/ou classes. 
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
