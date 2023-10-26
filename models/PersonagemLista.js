@@ -4,6 +4,8 @@ class ListaPersonagem{
         this.listaPersonagem = [];
     }
     addPersonagem(personagem){
+        console.log("Mandrak");
+        console.log(personagem);
         this.listaPersonagem.push(personagem)
         console.log("lista de personagens", this.listaPersonagem);
     }
