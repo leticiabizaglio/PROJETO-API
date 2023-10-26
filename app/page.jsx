@@ -33,9 +33,9 @@ export default function Home() {
     setTipos("");
 
   };
-  const edit = () =>{
+  const edit = (id) => {
     const criacao = instanciaLista.getPersongameById(id);
-    if (criacao){
+    if (criacao) {
       setName(criacao.name);
       setImagem(criacao.imagem);
       setTracos(criacao.tracos);
@@ -99,7 +99,7 @@ export default function Home() {
           <button onClick={criarPersonagem}>Cadastrar</button>
         </div>
         <div className={styles.forms}>
-      
+
         </div>
         <ul className={styles.ul}>
           {
@@ -111,14 +111,17 @@ export default function Home() {
                   <p className={styles.info}>{personagem.tracos}</p>
                   <p className={styles.info}>{personagem.tipos}</p>
                   <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
+                  <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button>
                 </div>
               ))
-              
+
             ) : (
               <h1></h1>
             )
           }
-          {
+
+          
+          {/* {
              editButton ? (
                         <button className={styles.buttonAtualizar} onClick={edit}>Editar</button>
                     ) : (
@@ -126,7 +129,7 @@ export default function Home() {
                         <p>jksnbkjdfdsbjkbsajkfbakjnfkj</p>
                         </>
                     )
-                    }
+                    } */}
         </ul>
       </div>
       <Footer />
