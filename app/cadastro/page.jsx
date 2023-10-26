@@ -19,21 +19,24 @@ export default function Cadastro() {
   const [render, setRender] = useState(false);
 
   const criarPersonagem = () => {
-    const newCH = new Personagem(name, image, tipo, tracos);
-    if (!listAkatsuki.some(personagem => personagem.name === name)) {
-      const updateList = [...listAkatsuki, newCH];
+    const perso = new Personagem(name, image, tipo, tracos);
+    if (!listAkatsuki.some(perso => perso.name === name)) {
+      const updateList = [...listAkatsuki, perso];
       setListAkatsuki(updateList);
     }
 
-    listAkatsukiA.addPersonagem(newCH);
+    listAkatsukiA.addPersonagem(perso);
 
     setName("");
     setImage("");
     setTipo("");
     setTracos("");
   }
-  const remove = (personagem) => {
-    listAkatsukiA.removeTsuki(personagem)
+  const atualizar = () => {
+    setRender(true)
+  }
+  const remove = (perso) => {
+    listAkatsukiA.removeTsuki(perso);
     setListAkatsuki(listAkatsukiA.getListaTsuki());
   };
 
@@ -52,13 +55,13 @@ export default function Cadastro() {
   useEffect(() => {
     if (apiData && apiData.data) {
       apiData.data.forEach((personagemData) => {
-        const novop = new Personagem(
+        const perso = new Personagem(
           personagemData.name,
           personagemData.image,
           personagemData.tracos,
           personagemData.tipo
         );
-        listAkatsukiA.addPersonagem(novop)
+        listAkatsukiA.addPersonagem(perso)
 
       });
       const updatePerso = [...listAkatsuki, ...listAkatsukiA.getListaTsuki()];
@@ -80,21 +83,121 @@ export default function Cadastro() {
         <button onClick={criarPersonagem}>Adicionar Personagem</button>
       </div>
       <ul className={styles.ul}>
-        {listAkatsuki && listAkatsuki.length > 0 ? (
-          listAkatsuki.map((personagem) => (
-            <div key={personagem.id} className={styles.cardzinho}>
-              <h1 className={styles.nome}>{personagem.name}</h1>
-              <img className={styles.img} src={personagem.image} alt={personagem.name} />
-              <p>{personagem.tracos}</p>
-              <p>{personagem.tipo}</p>
-              <button onClick={() => remove(personagem)}>Excluir</button>
-            </div>
-          ))
-        ) : (
-          <p></p>
-        )}
+        {
+          listAkatsuki && listAkatsuki.length > 0 ? (
+            listAkatsuki.map((personagem) => (
+              <div key={personagem.id} className={styles.cardzinho}>
+                <h1 className={styles.nome}>{personagem.name}</h1>
+                <p>{personagem.id}</p>
+                <img className={styles.img} src={personagem.image} alt={personagem.name} />
+                <p>{personagem.tracos}</p>
+                <p>{personagem.tipo}</p>
+                  {
+                    render ? (
+                    {
+                    dadosApi ? (
+                      dadosApi.map((info) =>
+                        info.name === "Jūgo" ? (
+                          null
+                        ) :
+                          info.name === "Kabuto Yakushi" ? (
+                            null
+                          ) :
+                            info.name === "Karin" ? (
+                              null
+                            ) :
+                              info.name === "Chibi" ? (
+                                null
+                              ) :
+                                info.name === "Hinoki" ? (
+                                  null
+                                ) :
+                                  info.name === "Hinoki" ? (
+                                    null
+                                  ) :
+                                    info.name === "Kakuzu's Partner" ? (
+                                      null
+                                    ) :
+                                      info.name === "Kie" ? (
+                                        null
+                                      ) :
+                                        info.name === "Kyōya" ? (
+                                          null
+                                        ) :
+                                          info.name === "Himeyuri" ? (
+                                            null
+                                          ) :
+                                            info.name === "Ginji" ? (
+                                              null
+                                            ) :
+                                              info.name === "Hidan" ? (
+                                                null
+                                              ) :
+
+                                                info.name === "Demonic Statue of the Outer Path" ? (
+                                                  null
+                                                ) :
+                                                  info.name === "Daibutsu" ? (
+                                                    null
+                                                  ) :
+
+
+                                                    (
+                                                      <div className={styles.card1} key={info.id}>
+                                                        <h1 className={styles.nome}>{info.name}</h1>
+                                                        <p>{info.id}</p>
+                                                        {
+                                                          info.images.map((img) => (
+                                                            <img className={styles.img} src={info.images} width={400} height={400} />
+                                                          ))
+                                                        }
+
+                                                        {
+                                                          !info.natureType ? (
+                                                            null
+                                                          ) :
+                                                            info.natureType.map((tipo) =>
+                                                            (
+                                                              <p className={styles.descricao}>Natureza: {tipo}</p>
+                                                            ))
+                                                        }
+                                                        {
+                                                          !info.uniqueTraits ? (
+                                                            null
+                                                          ) :
+                                                            info.uniqueTraits.map((tracos) =>
+                                                            (
+                                                              <p className={styles.descricao}>Traços únicos: {tracos}</p>
+                                                            ))
+                                                        }
+
+
+
+                                                      </div>
+                    }
+                  )
+
+
+                  )
+
+                  )
+                  ) : (
+                  <P></P>
+                  )
+                }
+                
+                <button className={styles.excluir} onClick={() => remove(personagem.id)}>Excluir</button>
+              </div>
+
+            ))
+          ) : (
+            <p></p>
+          )}
+
       </ul>
       <Footer />
     </>
+
   )
+
 }

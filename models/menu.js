@@ -5,7 +5,9 @@ import styles from '@/app/page.module.css'
 import Header from '@/app/components/header/Header';
 import Footer from '@/app/components/footer/Footer';
 import { useRouter } from 'next/navigation';
+import ListAkatsuki from './akatsukiList';
 
+const listaAka = new ListAkatsuki()
 
 function Menu() {
   const [dadosApi, setdadosApi] = useState('');
@@ -14,7 +16,8 @@ function Menu() {
     const AnimeFetch = async () => {
       try {
         const dados = await Personagem();
-        setdadosApi(dados);
+        listaAka.addApiData(dados)
+        setdadosApi(listaAka.getListaTsuki());
         console.log(dados)
       } catch (e) {
         throw e;
@@ -34,7 +37,7 @@ function Menu() {
         <button onClick={pular}>Cadastrar</button>
         <div className={styles.quasetd}>
           {dadosApi ? (
-            dadosApi.akatsuki.map((info) =>
+            dadosApi.map((info) =>
               info.name === "Jūgo" ? (
                 null
               ) :
@@ -83,6 +86,7 @@ function Menu() {
                                           (
                                             <div className={styles.card1} key={info.id}>
                                               <h1 className={styles.nome}>{info.name}</h1>
+                                              <p>{info.id}</p>
                                               {
                                                 info.images.map((img) => (
                                                   <img className={styles.img} src={info.images} width={400} height={400} />
