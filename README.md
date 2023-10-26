@@ -17,8 +17,7 @@ Este projeto usa [`next/font`](https://nextjs.org/docs/basic-features/font-optim
 
 ## Passo a passo
 
-1. Estruturação:
-<br>
+### 1. Estruturação:
 Criar pastas e modificar estruturação de pastas (caso seja necessário). Como por exemplo:
 <br>
 "page.js" => "page.jsx"
@@ -33,33 +32,42 @@ A pasta "components" armazena todos os componentes, trechos de códigos importan
 O interessante de usar componentes é a simplificação do código através de um Link, organização e agilidade.
 Isso faz com que os desenvolvedores sejam visto de forma profissional.
 
-2. Principais Pastas:
+### 2. Principais Pastas:
 
-Pasta (data):
-<br>
-Destinada a arquivos javascript, e armazenamento de informações da API.
+### Pasta (data):
+Essa pasta é destinada a arquivos javascript, e armazenamento de informações da API.
 
-Arquivo (akatsuki.js):
+**Arquivo (anime.js)**
 <br>
-Contém exportação da classe "Personagem". E os personagens terão:
+Este arquivo fornece as informações da API por meio da importação do Link. E exportamos para utilizar em outras páginas.
+
+### Pasta (models):
+Essa pasta é destinada a arquivos javascript, por sua vez, orientados a objetos e/ou classes. 
+
+**Arquivo (akatsuki.js):**
+<br>
+Temos a exportação da classe "Personagem". E cada personagem exibido por essa API terá:
 - nome (name)
 - img (imagem do personagem)
 - tipo (natureza)
 - tracos (traços únicos)
+
+**Arquivo (akatsukiList.js):**
 <br>
-Arquivo (anime.js)
-Este arquivo fornece as informações da API por meio da importação do Link. E exportação para utilizar em outras páginas.
+Utilizamos métodos:
+- addPersonagem = adiciona o personagem
+- getListaTsuki = é um array que retorna os dados...
+- removeTsuki = remove o personagem
+
+atráves da classe **ListAkatsuki**:
 
 
-Pasta (models):
-<br>
-Destinada a arquivos javascript, por sua vez, orientados a objetos e/ou classes. 
 
-Arquivo (menu.js):
+ **Arquivo (menu.js):**
 <br>
-Este arquivo está fornecendo as informações dos personagens na tela. Também temos informações ocultas como:
+Este arquivo está fornecendo/alimentando as informações dos personagens na tela, ou seja, tudo o que está aparecendo ou não na tela. Como por exemplo, temos alguns personagens que ocultamos, são eles:
 <br> 
-- Personagens: Jūgo, Kabuto Yakushi, Karin, Chibi, Hinoki, Kakuzu's Partner, Kie, Kyōya, Himeyuri, Ginji, Hidan
+- Jūgo, Kabuto Yakushi, Karin, Chibi, Hinoki, Kakuzu's Partner, Kie, Kyōya, Himeyuri, Ginji, Hidan
 
 
 
