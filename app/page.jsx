@@ -17,6 +17,8 @@ export default function Home() {
   const [tracos, setTracos] = useState("");
   const [tipos, setTipos] = useState("");
   const [render, setRender] = useState(false);
+  const [editButton, setEditButton] = useState(false);
+  const [flag, setFlag] = useState(0);
 
   const criarPersonagem = () => {
     const novoPersonagem = new Personagem(name, imagem, tracos, tipos);
@@ -31,6 +33,26 @@ export default function Home() {
     setTipos("");
 
   };
+  const edit = () =>{
+    const criacao = instanciaLista.getPersongameById(id);
+    if (criacao){
+      setName(criacao.name);
+      setImagem(criacao.imagem);
+      setTracos(criacao.tracos);
+      setTipos(criacao.tipos);
+      setFlag(id);
+      setEditButton(true);
+    }
+  }
+  const atualizar = () => {
+    instanciaLista.updatePersonagem(flag, name, imagem, tracos, tipos);
+    setName("");
+    setImagem("");
+    setTracos("");
+    setTipos("");
+    setFlag(0);
+    setEditButton(false);
+  }
 
   const deletarPersonagem = (personagem) => {
     instanciaLista.excludePersonagem(personagem);
@@ -76,6 +98,9 @@ export default function Home() {
           <input type='text' placeholder='Natureza' value={tipos} onChange={(p) => setTipos(p.target.value)} />
           <button onClick={criarPersonagem}>Cadastrar</button>
         </div>
+        <div className={styles.forms}>
+      
+        </div>
         <ul className={styles.ul}>
           {
             listaPersonagem && listaPersonagem.length > 0 ? (
@@ -88,10 +113,20 @@ export default function Home() {
                   <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
                 </div>
               ))
+              
             ) : (
-              <h1>Carregando...</h1>
+              <h1></h1>
             )
           }
+          {
+             editButton ? (
+                        <button className={styles.buttonAtualizar} onClick={edit}>Editar</button>
+                    ) : (
+                        <>
+                        <p>jksnbkjdfdsbjkbsajkfbakjnfkj</p>
+                        </>
+                    )
+                    }
         </ul>
       </div>
       <Footer />

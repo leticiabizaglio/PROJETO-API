@@ -17,5 +17,8 @@ class ListaPersonagem{
         console.log("lista de personagens", this.listaPersonagem);
 
     }
+    getPersongameById(id){
+        return this.personagem.find((personagem) => personagem.id === id);
+    }
 }
 export default ListaPersonagem
