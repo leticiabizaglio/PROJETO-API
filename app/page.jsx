@@ -14,7 +14,7 @@ export default function Home() {
   const [apiData, setApiData] = useState(null);
   const [name, setName] = useState("");
   const [imagem, setImagem] = useState("");
-  const [natureza, setNatureza] = useState("");
+  const [status, setstatus] = useState("");
   const [render, setRender] = useState(true);
   const [flag, setFlag] = useState(0);
 
@@ -36,7 +36,7 @@ export default function Home() {
 
   const criarPersonagem = () => {
     atualizar();
-    const novoPersonagem = new Personagem(name, imagem, natureza);
+    const novoPersonagem = new Personagem(name, imagem, status);
     if (!listaPersonagem.some(personagem => personagem.name === name)) {
       const updatePersonagem = [...listaPersonagem, novoPersonagem];
       setListaPersonagem(updatePersonagem);
@@ -44,7 +44,9 @@ export default function Home() {
     instanciaLista.addPersonagem(novoPersonagem);
     setName("");
     setImagem("");
-    setNatureza("");
+    setstatus("");
+    setvoiceActors("");
+
     // const excludedCharacters = [
     //   "Jūgo",
     //   "Kabuto Yakushi",
@@ -60,10 +62,10 @@ export default function Home() {
     //   "Demonic Statue of the Outer Path",
     //   "Daibutsu",
     // ];
-  
+
     // return listaPersonagem.filter(personagem => !excludedCharacters.includes(personagem.name));
   }
-      
+
 
   // const edit = (id) => {
   //   atualizar();
@@ -79,9 +81,8 @@ export default function Home() {
   const atualizar = () => {
     setName("");
     setImagem("");
-    setNatureza("");
+    setstatus("");
     setFlag(0);
-    setEditButton(false);
   }
 
   const deletarPersonagem = (personagem) => {
@@ -91,21 +92,27 @@ export default function Home() {
   }
 
   useEffect(() => {
+    let ignore = false
+
+
     const addAPI = async () => {
       const data = await Akatsuki();
 
-      data.map((personagem) => {
-        const novoPersonagem = new Personagem(
-          personagem.name,
-          personagem.images[0],
-          personagem.natureType
-        );
-        instanciaLista.addPersonagem(novoPersonagem);
-      });
+      if (!false) {
+        data.map((personagem) => {
+          const novoPersonagem = new Personagem(
+            personagem.name,
+            personagem.images[0],
+            personagem.personal.status,
+          );
+          instanciaLista.addPersonagem(novoPersonagem);
+        });
+      }
       const updatePersonagem = [...listaPersonagem, ...instanciaLista.getListaPersonagem()];
       setListaPersonagem(updatePersonagem);
     }
     addAPI();
+    ignore = true;
   }, [apiData]);
 
   return (
@@ -119,18 +126,18 @@ export default function Home() {
             render ? (
               //listaPersonagem && listaPersonagem.length > 0 ? (
               listaPersonagem ? (
-              
-             
 
-                                              listaPersonagem.map((personagem) => (
-                                                <div key={personagem.id} className={styles.card}>
-                                                  <h2 className={styles.li}>{personagem.name}</h2>
-                                                  <img className={styles.img} src={personagem.img} alt={personagem.name} />
-                                                  <p className={styles.info}> {personagem.natureza} </p>
-                                                  <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
-                                                  {/* <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button> */}
-                                                </div>
-                                              ))) : (
+
+
+                listaPersonagem.map((personagem) => (
+                  <div key={personagem.id} className={styles.card}>
+                    <h2 className={styles.li}>{personagem.name}</h2>
+                    <img className={styles.img} src={personagem.img} alt={personagem.name} />
+                    <p>Status:{personagem.status}</p>
+                    <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
+                    {/* <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button> */}
+                  </div>
+                ))) : (
                 <h1></h1>
               )
             )
@@ -139,7 +146,7 @@ export default function Home() {
                   <div className={styles.forms}>
                     <input type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
                     <input type='text' placeholder='URL da imagem' value={imagem} onChange={(p) => setImagem(p.target.value)} />
-                    <input type='text' placeholder='Natureza' value={natureza} onChange={(p) => setNatureza(p.target.value)} />
+                    <input type='text' placeholder='Status' value={status} onChange={(p) => setstatus(p.target.value)} />
                     <button onClick={criarPersonagem}>Cadastrar</button>
                   </div>
                   <div className={styles.forms}>
