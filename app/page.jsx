@@ -6,6 +6,8 @@ import styles from '@/app/page.module.css'
 import Personagem from "@/models/Personagem";
 import ListaPersonagem from "@/models/PersonagemLista";
 import Akatsuki from "@/data/akatsuki";
+import { BsFillTrash3Fill } from 'react-icons/bs';
+import {BsFillPenFill} from 'react-icons/bs';
 
 const instanciaLista = new ListaPersonagem();
 
@@ -15,6 +17,8 @@ export default function Home() {
   const [imagem, setImagem] = useState("");
   const [status, setStatus] = useState("");
   const [render, setRender] = useState(true);
+  const [flag, setFlag] = useState(0);
+  const [editButton, setEditButton] = useState(false);
 
   const criarPersonagem = () => {
     atualizar();
@@ -34,6 +38,59 @@ export default function Home() {
     setImagem("");
     setStatus("");
   }
+
+  // const editPersonagem = (id) => {
+  //   atualizar();
+  //   const criacao = instanciaLista.getPersongameById(id);
+  //   console.log("Encontrou?");
+  //   console.log(criacao);
+
+  //   setName(criacao.name);
+  //   setImagem(criacao.imagem);
+  //   setStatus(criacao.status);
+  //   setFlag(id);
+  //   setEditButton(true);
+  // };
+
+  // const update = () => {
+  //   instanciaLista.atualizarLista(name, img, status)
+
+  //   atualizar();
+  //   setEditButton(false);
+  //   setFlag(0);
+  // }
+  const editPersonagem = (id) => {
+    atualizar();
+    const criacao = instanciaLista.getPersongameById(id);
+    
+    setName(criacao.name);
+    setImagem(criacao.imagem);
+    setStatus(criacao.status);
+    setFlag(id);
+    setEditButton(true);
+    setRender(!render)
+  };
+
+  const update = () => {
+    instanciaLista.atualizarLista(flag, name, imagem, status);
+
+    atualizar();
+    setEditButton(false);
+    setFlag(0);
+  }
+
+
+
+  //  const editPersonagem = (id) => {
+  //    atualizar();
+  //    const criacao = instanciaLista.getPersongameById(id);
+
+  //      setName(criacao.name);
+  //      setImagem(criacao.imagem);
+  //      setStatus(criacao.status);
+  //      setFlag(id);
+  //  }
+
 
   const deletarPersonagem = (personagem) => {
     atualizar();
@@ -75,20 +132,26 @@ export default function Home() {
                   <h2 className={styles.li}>{personagem.name}</h2>
                   <img className={styles.img} src={personagem.img} alt={personagem.name} />
                   <p>Status: {personagem.status}</p>
-                  <button onClick={() => deletarPersonagem(personagem)} className={styles.button}>Deletar</button>
+                  <button onClick={() => deletarPersonagem(personagem)} className={styles.button}><BsFillTrash3Fill /></button>
+
+                  <button onClick={() => editPersonagem(personagem.id)} className={styles.button}><BsFillPenFill/></button>
                 </div>
               ))
             )}
-           
+
           </>
         ) : (
           <>
-           <button onClick={() => setRender(!render)} className={styles.Renderbutton}>ICON 1</button>
+            <button onClick={() => setRender(!render)} className={styles.Renderbutton}>ICON 1</button>
             <div className={styles.forms}>
               <input type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
               <input type='text' placeholder='URL da imagem' value={imagem} onChange={(p) => setImagem(p.target.value)} />
               <input type='text' placeholder='Status' value={status} onChange={(p) => setStatus(p.target.value)} />
-              <button onClick={criarPersonagem} className={styles.button}>Cadastrar</button>
+              {editButton ? (
+                <button onClick={update} className={styles.button}>Atualizar</button>
+              ) : (
+                <button onClick={criarPersonagem} className={styles.button}>Cadastrar</button>
+              )}
             </div>
             <div className={styles.forms}></div>
           </>

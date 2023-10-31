@@ -19,12 +19,30 @@ class ListaPersonagem{
 
     }
     getPersongameById(id){
-        return this.listaPersonagem.find((personagem) => personagem.id === id);
+        const person = this.listaPersonagem.find((personagem) => personagem.id === id);
+       // console.log("No método");
+       // console.log(id);
+        return person
     }
 
     removerDuplicados() {
         this.listaPersonagem = this.listaPersonagem.filter((person, index, self) => index === self.findIndex((p) => p.name === person.name))
     }
+
+    atualizarLista(id, name, img, status) {
+        const criar = this.getPersongameById(id);
+    
+        if (criar) {
+          criar.name = name;
+          criar.img = img;
+          criar.status = status;
+        }
+    
+       // this.atualizarLista();
+    
+        return criar;
+      }
+    
 
 
 }
