@@ -45,7 +45,7 @@ export default function Home() {
     setName("");
     setImagem("");
     setstatus("");
-    
+
     // const excludedCharacters = [
     //   "Jūgo",
     //   "Kabuto Yakushi",
@@ -61,10 +61,10 @@ export default function Home() {
     //   "Demonic Statue of the Outer Path",
     //   "Daibutsu",
     // ];
-  
+
     // return listaPersonagem.filter(personagem => !excludedCharacters.includes(personagem.name));
   }
-      
+
 
   // const edit = (id) => {
   //   atualizar();
@@ -91,21 +91,27 @@ export default function Home() {
   }
 
   useEffect(() => {
+    let ignore = false
+
+
     const addAPI = async () => {
       const data = await Akatsuki();
 
-      data.map((personagem) => {
-        const novoPersonagem = new Personagem(
-          personagem.name,
-          personagem.images[0],
-          personagem.status
-        );
-        instanciaLista.addPersonagem(novoPersonagem);
-      });
+      if (!false) {
+        data.map((personagem) => {
+          const novoPersonagem = new Personagem(
+            personagem.name,
+            personagem.images[0],
+            personagem.personal.status
+          );
+          instanciaLista.addPersonagem(novoPersonagem);
+        });
+      }
       const updatePersonagem = [...listaPersonagem, ...instanciaLista.getListaPersonagem()];
       setListaPersonagem(updatePersonagem);
     }
     addAPI();
+    ignore = true;
   }, [apiData]);
 
   return (
@@ -119,18 +125,18 @@ export default function Home() {
             render ? (
               //listaPersonagem && listaPersonagem.length > 0 ? (
               listaPersonagem ? (
-              
-             
 
-                                              listaPersonagem.map((personagem) => (
-                                                <div key={personagem.id} className={styles.card}>
-                                                  <h2 className={styles.li}>{personagem.name}</h2>
-                                                  <img className={styles.img} src={personagem.img} alt={personagem.name} />
-                                                  <p className={styles.info}> {personagem.status} </p>
-                                                  <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
-                                                  {/* <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button> */}
-                                                </div>
-                                              ))) : (
+
+
+                listaPersonagem.map((personagem) => (
+                  <div key={personagem.id} className={styles.card}>
+                    <h2 className={styles.li}>{personagem.name}</h2>
+                    <img className={styles.img} src={personagem.img} alt={personagem.name} />
+                    <p>{personagem.status}</p>
+                    <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
+                    {/* <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button> */}
+                  </div>
+                ))) : (
                 <h1></h1>
               )
             )
@@ -139,7 +145,7 @@ export default function Home() {
                   <div className={styles.forms}>
                     <input type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
                     <input type='text' placeholder='URL da imagem' value={imagem} onChange={(p) => setImagem(p.target.value)} />
-                    <input type='text' placeholder='Natureza' value={status} onChange={(p) => setstatus(p.target.value)} />
+                    <input type='text' placeholder='Status' value={status} onChange={(p) => setstatus(p.target.value)} />
                     <button onClick={criarPersonagem}>Cadastrar</button>
                   </div>
                   <div className={styles.forms}>

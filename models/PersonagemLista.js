@@ -8,6 +8,7 @@ class ListaPersonagem{
         console.log(personagem);
         this.listaPersonagem.push(personagem)
         console.log("lista de personagens", this.listaPersonagem);
+        this.removerDuplicados();
     }
     getListaPersonagem(){
         return this.listaPersonagem
@@ -19,6 +20,10 @@ class ListaPersonagem{
     }
     getPersongameById(id){
         return this.listaPersonagem.find((personagem) => personagem.id === id);
+    }
+
+    removerDuplicados() {
+        this.listaPersonagem = this.listaPersonagem.filter((person, index, self) => index === self.findIndex((p) => p.name === person.name))
     }
 
 
