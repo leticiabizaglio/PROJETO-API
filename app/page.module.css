@@ -4,14 +4,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgb(198, 0, 0), rgb(42, 42, 42));
+    background-color: #1b1b1b;
     color: #fff;
     font-family: 'Archivo Black', sans-serif;
     font-size: 2rem;
     text-align: center;
 }
 .card{
-    background-color: #363636;
+    background-color: #1b1b1b;
+    border: rgb(187, 0, 0) 2px solid;
+    border-radius: 20px;
     font-size: 1rem;
     margin: 1rem;
     height: 25rem;
@@ -20,4 +22,10 @@
 .info{
     display: flex;
     flex-direction: column;
+}
+.forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
