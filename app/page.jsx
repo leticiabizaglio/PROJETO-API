@@ -14,14 +14,29 @@ export default function Home() {
   const [apiData, setApiData] = useState(null);
   const [name, setName] = useState("");
   const [imagem, setImagem] = useState("");
-  const [tracos, setTracos] = useState("");
-  const [tipos, setTipos] = useState("");
-  const [render, setRender] = useState(false);
-  const [editButton, setEditButton] = useState(false);
+  const [natureza, setNatureza] = useState("");
+  const [render, setRender] = useState(true);
   const [flag, setFlag] = useState(0);
 
+  // const addAPI = async () => {
+  //   const data = await Akatsuki();
+
+  //   data.map((personagem) => {
+  //     const novoPersonagem = new Personagem(
+  //       personagem.name,
+  //       personagem.imagem,
+  //       personagem.tracos,
+  //       personagem.Natureza
+  //     );
+  //     instanciaLista.addPersonagem(novoPersonagem);
+  //   });
+  //   const updatePersonagem = [...listaPersonagem, ...instanciaLista.getListaPersonagem()];
+  //   setListaPersonagem(updatePersonagem);
+  // }
+
   const criarPersonagem = () => {
-    const novoPersonagem = new Personagem(name, imagem, tracos, tipos);
+    atualizar();
+    const novoPersonagem = new Personagem(name, imagem, natureza);
     if (!listaPersonagem.some(personagem => personagem.name === name)) {
       const updatePersonagem = [...listaPersonagem, novoPersonagem];
       setListaPersonagem(updatePersonagem);
@@ -29,61 +44,68 @@ export default function Home() {
     instanciaLista.addPersonagem(novoPersonagem);
     setName("");
     setImagem("");
-    setTracos("");
-    setTipos("");
-
-  };
-  const edit = (id) => {
-    const criacao = instanciaLista.getPersongameById(id);
-    if (criacao) {
-      setName(criacao.name);
-      setImagem(criacao.imagem);
-      setTracos(criacao.tracos);
-      setTipos(criacao.tipos);
-      setFlag(id);
-      setEditButton(true);
-    }
+    setNatureza("");
+    // const excludedCharacters = [
+    //   "Jūgo",
+    //   "Kabuto Yakushi",
+    //   "Karin",
+    //   "Chibi",
+    //   "Hinoki",
+    //   "Kakuzu's Partner", 
+    //   "Kie",
+    //   "Kyōya",
+    //   "Himeyuri",
+    //   "Ginji",
+    //   "Hidan",
+    //   "Demonic Statue of the Outer Path",
+    //   "Daibutsu",
+    // ];
+  
+    // return listaPersonagem.filter(personagem => !excludedCharacters.includes(personagem.name));
   }
+      
+
+  // const edit = (id) => {
+  //   atualizar();
+  //   const criacao = instanciaLista.getPersongameById(id);
+  //   if (criacao) {
+  //     setName(criacao.name);
+  //     setImagem(criacao.imagem);
+  //     setNatureza(criacao.Natureza);
+  //     setFlag(id);
+  //     setEditButton(true);
+  //   }
+  // }
   const atualizar = () => {
-    instanciaLista.updatePersonagem(flag, name, imagem, tracos, tipos);
     setName("");
     setImagem("");
-    setTracos("");
-    setTipos("");
+    setNatureza("");
     setFlag(0);
     setEditButton(false);
   }
 
   const deletarPersonagem = (personagem) => {
+    atualizar();
     instanciaLista.excludePersonagem(personagem);
     setListaPersonagem(instanciaLista.getListaPersonagem());
   }
-  useEffect(() => {
-    const getApi = async () => {
-      try {
-        const data = await Akatsuki();
-        setApiData(data)
-      } catch (error) {
-        return error
-      }
-    };
-    getApi();
-  }, []);
 
   useEffect(() => {
-    if (apiData && apiData.data) {
-      apiData.data.forEach((personagem) => {
+    const addAPI = async () => {
+      const data = await Akatsuki();
+
+      data.map((personagem) => {
         const novoPersonagem = new Personagem(
           personagem.name,
-          personagem.imagem,
-          personagem.tracos,
-          personagem.tipos
+          personagem.images[0],
+          personagem.natureType
         );
         instanciaLista.addPersonagem(novoPersonagem);
       });
       const updatePersonagem = [...listaPersonagem, ...instanciaLista.getListaPersonagem()];
       setListaPersonagem(updatePersonagem);
     }
+    addAPI();
   }, [apiData]);
 
   return (
@@ -91,45 +113,42 @@ export default function Home() {
       <Header />
       <div className={styles.container}>
         <h1 className={styles.title}>API data:</h1>
-        <div className={styles.forms}>
-          <input type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
-          <input type='text' placeholder='URL da imagem' value={imagem} onChange={(p) => setImagem(p.target.value)} />
-          <input type='text' placeholder='Traços Únicos' value={tracos} onChange={(p) => setTracos(p.target.value)} />
-          <input type='text' placeholder='Natureza' value={tipos} onChange={(p) => setTipos(p.target.value)} />
-          <button onClick={criarPersonagem}>Cadastrar</button>
-        </div>
-        <div className={styles.forms}>
-
-        </div>
+        <button className={styles.buttonAtualizar} onClick={() => setRender(!render)}>Renderizar</button>
         <ul className={styles.ul}>
           {
-            listaPersonagem && listaPersonagem.length > 0 ? (
-              listaPersonagem.map((personagem) => (
-                <div key={personagem.id} className={styles.card}>
-                  <h2 className={styles.li}>{personagem.name}</h2>
-                  <img className={styles.img} src={personagem.img} alt={personagem.name} />
-                  <p className={styles.info}>{personagem.tracos}</p>
-                  <p className={styles.info}>{personagem.tipos}</p>
-                  <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
-                  <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button>
-                </div>
-              ))
+            render ? (
+              //listaPersonagem && listaPersonagem.length > 0 ? (
+              listaPersonagem ? (
+              
+             
 
-            ) : (
-              <h1></h1>
+                                              listaPersonagem.map((personagem) => (
+                                                <div key={personagem.id} className={styles.card}>
+                                                  <h2 className={styles.li}>{personagem.name}</h2>
+                                                  <img className={styles.img} src={personagem.img} alt={personagem.name} />
+                                                  <p className={styles.info}> {personagem.natureza} </p>
+                                                  <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
+                                                  {/* <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button> */}
+                                                </div>
+                                              ))) : (
+                <h1></h1>
+              )
             )
-          }
+              : (
+                <>
+                  <div className={styles.forms}>
+                    <input type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
+                    <input type='text' placeholder='URL da imagem' value={imagem} onChange={(p) => setImagem(p.target.value)} />
+                    <input type='text' placeholder='Natureza' value={natureza} onChange={(p) => setNatureza(p.target.value)} />
+                    <button onClick={criarPersonagem}>Cadastrar</button>
+                  </div>
+                  <div className={styles.forms}>
 
-          
-          {/* {
-             editButton ? (
-                        <button className={styles.buttonAtualizar} onClick={edit}>Editar</button>
-                    ) : (
-                        <>
-                        <p>jksnbkjdfdsbjkbsajkfbakjnfkj</p>
-                        </>
-                    )
-                    } */}
+                  </div>
+                </>
+              )
+
+          }
         </ul>
       </div>
       <Footer />
