@@ -14,7 +14,7 @@ export default function Home() {
   const [apiData, setApiData] = useState(null);
   const [name, setName] = useState("");
   const [imagem, setImagem] = useState("");
-  const [natureza, setNatureza] = useState("");
+  const [status, setstatus] = useState("");
   const [render, setRender] = useState(true);
   const [flag, setFlag] = useState(0);
 
@@ -36,7 +36,7 @@ export default function Home() {
 
   const criarPersonagem = () => {
     atualizar();
-    const novoPersonagem = new Personagem(name, imagem, natureza);
+    const novoPersonagem = new Personagem(name, imagem, status);
     if (!listaPersonagem.some(personagem => personagem.name === name)) {
       const updatePersonagem = [...listaPersonagem, novoPersonagem];
       setListaPersonagem(updatePersonagem);
@@ -44,7 +44,8 @@ export default function Home() {
     instanciaLista.addPersonagem(novoPersonagem);
     setName("");
     setImagem("");
-    setNatureza("");
+    setstatus("");
+    
     // const excludedCharacters = [
     //   "Jūgo",
     //   "Kabuto Yakushi",
@@ -79,9 +80,8 @@ export default function Home() {
   const atualizar = () => {
     setName("");
     setImagem("");
-    setNatureza("");
+    setstatus("");
     setFlag(0);
-    setEditButton(false);
   }
 
   const deletarPersonagem = (personagem) => {
@@ -98,7 +98,7 @@ export default function Home() {
         const novoPersonagem = new Personagem(
           personagem.name,
           personagem.images[0],
-          personagem.natureType
+          personagem.status
         );
         instanciaLista.addPersonagem(novoPersonagem);
       });
@@ -126,7 +126,7 @@ export default function Home() {
                                                 <div key={personagem.id} className={styles.card}>
                                                   <h2 className={styles.li}>{personagem.name}</h2>
                                                   <img className={styles.img} src={personagem.img} alt={personagem.name} />
-                                                  <p className={styles.info}> {personagem.natureza} </p>
+                                                  <p className={styles.info}> {personagem.status} </p>
                                                   <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
                                                   {/* <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button> */}
                                                 </div>
@@ -139,7 +139,7 @@ export default function Home() {
                   <div className={styles.forms}>
                     <input type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
                     <input type='text' placeholder='URL da imagem' value={imagem} onChange={(p) => setImagem(p.target.value)} />
-                    <input type='text' placeholder='Natureza' value={natureza} onChange={(p) => setNatureza(p.target.value)} />
+                    <input type='text' placeholder='Natureza' value={status} onChange={(p) => setstatus(p.target.value)} />
                     <button onClick={criarPersonagem}>Cadastrar</button>
                   </div>
                   <div className={styles.forms}>
