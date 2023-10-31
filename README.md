@@ -1,5 +1,6 @@
-O objetivo desse site é mostrar a funcionalidade da API.
-<br> 
+Este é um projeto [Next.js](https://nextjs.org/) inicializado com  [`create-next-app`]
+(https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 Toda a documentação da API estará disponível neste link: [https://www.narutodb.xyz/api/akatsuki].
 
 ## Primeiro passos no terminal
@@ -65,19 +66,19 @@ Arquivo **(PersonagemLista.js):**
 <br>
 Este arquivo contém uma classe "ListaPersonagem" com os métodos "addPersonagem", "getListaPersonagem" e "excludePersonagem".
 
+- **constructor**
+<br>
+Temos um array vazio para receber os métodos abaixo, ou seja, um array que espera métodos para adicionar personagens (addPersonagem), mostrar os personagens na tela (getListaPersonagem) e para excluir (excludePersonagem).
+
+
 - **addPersonagem**
 <br>
-ojs
+Este método adiciona o personagem que o usuário criou (cadastro), por isso que o array é vazio, por causa que espera um cadastro.
 
 - **getListaPersonagem**
 <br>
-jsj
+Pega os personagens da lista (da API) e o personagem que o usuário criou e exibe na tela.
 
 - **excludePersonagem**
 <br>
-kjd
-gytyy
-
-
-<br> 
-
+Consegue excluir tanto os personagens da API quanto o cadastrado.
