@@ -45,6 +45,7 @@ export default function Home() {
     setName("");
     setImagem("");
     setstatus("");
+    setvoiceActors("");
 
     // const excludedCharacters = [
     //   "Jūgo",
@@ -102,7 +103,7 @@ export default function Home() {
           const novoPersonagem = new Personagem(
             personagem.name,
             personagem.images[0],
-            personagem.personal.status
+            personagem.personal.status,
           );
           instanciaLista.addPersonagem(novoPersonagem);
         });
@@ -132,7 +133,7 @@ export default function Home() {
                   <div key={personagem.id} className={styles.card}>
                     <h2 className={styles.li}>{personagem.name}</h2>
                     <img className={styles.img} src={personagem.img} alt={personagem.name} />
-                    <p>{personagem.status}</p>
+                    <p>Status:{personagem.status}</p>
                     <button onClick={() => deletarPersonagem(personagem)}>Deletar</button>
                     {/* <button className={styles.buttonAtualizar} onClick={() => edit(personagem.id)}>Editar</button> */}
                   </div>
