@@ -1,33 +1,53 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap');
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #1b1b1b;
+
+.container {
+    flex-shrink: 0;
+    background: rgba(0, 0, 0,);
+    mix-blend-mode: multiply;
+    background-image: url('https://wallpapercave.com/wp/A2u0Ixo.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
     color: #fff;
     font-family: 'Archivo Black', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
 }
-.card{
-    background-color: #1b1b1b;
-    border: rgb(187, 0, 0) 2px solid;
-    border-radius: 20px;
-    font-size: 1rem;
-    margin: 1rem;
-    height: 25rem;
-    padding: 30px;
+
+.img {
+    width: 285.232px;
+    height: 256px;
+    flex-shrink: 0;
+    border-radius: 32px;
 }
-.info{
+.button{
+    width: 328px;
+    height: 56px;
+    border-radius: 32px;
+    color: #971434;
+    background: #2D2D2D;
+    border: #2D2D2D 1px;
+    cursor: pointer;
+    font-size: 30px;
+}
+.button:hover{
+    color: #e53e43;
+    transition: ease-in-out 0.5s;
+}
+.card {
+    width: 328px;
+    height: 452px;
+    border-radius: 47px;
+    background: #2D2D2D;
+}
+
+.info {
     display: flex;
     flex-direction: column;
 }
-.forms{
+
+.forms {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-}
 
+}
