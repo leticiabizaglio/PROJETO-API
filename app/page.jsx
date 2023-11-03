@@ -1,6 +1,8 @@
+
+
 "use client"
 import React, { useEffect, useState } from "react";
-import Header from '@/app/components/header/Header';
+// import Header from '@/app/components/header/Header';
 import Footer from '@/app/components/footer/Footer';
 import styles from '@/app/page.module.css'
 import Personagem from "@/models/Personagem";
@@ -119,14 +121,16 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className={styles.container}>
-        <h1 className={styles.title}>API data:</h1>
+      <img className={styles.fundo} src="/akatsuki.png" alt="" />
+        <h1 className={styles.title}>Akatsuki API:</h1>
+        
 
         {render ? (
           <>
             <button onClick={() => setRender(!render)} className={styles.Renderbutton}>ICON 2</button>
-            {listaPersonagem && (
+            <div className={styles.space}>{listaPersonagem && (
               listaPersonagem.map((personagem) => (
                 <div key={personagem.id} className={styles.card}>
                   <h2 className={styles.li}>{personagem.name}</h2>
@@ -138,15 +142,19 @@ export default function Home() {
                 </div>
               ))
             )}
+            </div>
 
           </>
         ) : (
-          <>
+          
+
+          <div className={styles.cadastro}>
             <button onClick={() => setRender(!render)} className={styles.Renderbutton}>ICON 1</button>
+            <div className={styles.cardzinho}>
             <div className={styles.forms}>
-              <input type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
-              <input type='text' placeholder='URL da imagem' value={imagem} onChange={(p) => setImagem(p.target.value)} />
-              <input type='text' placeholder='Status' value={status} onChange={(p) => setStatus(p.target.value)} />
+              <input className={styles.input} type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
+              <input className={styles.input}type='text' placeholder='URL da imagem' value={imagem} onChange={(p) => setImagem(p.target.value)} />
+              <input className={styles.input}type='text' placeholder='Status' value={status} onChange={(p) => setStatus(p.target.value)} />
               {editButton ? (
                 <button onClick={update} className={styles.button}>Atualizar</button>
               ) : (
@@ -154,10 +162,11 @@ export default function Home() {
               )}
             </div>
             <div className={styles.forms}></div>
-          </>
+            </div>
+          </div>
         )}
       </div>
-      <Footer />
+       <Footer /> 
     </>
   )
 }
