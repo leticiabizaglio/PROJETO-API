@@ -57,8 +57,7 @@ Cada personagem vai ter:
 - id;
 - name (nome);
 - img (imagem);
-- traços; 
-- tipos;
+- status.
 
 - Temos um método de **"generateID"**. Este método gera o ID de cada personagem, com o cálculo de **Math.floor** e **Math.random** que nos retorna ID´s até o número 1000.
 
@@ -77,8 +76,29 @@ Este método adiciona o personagem que o usuário criou (cadastro), por isso que
 
 - **getListaPersonagem**
 <br>
-Pega os personagens da lista (da API) e o personagem que o usuário criou e exibe na tela.
+Pega os personagens da lista (da API) e o personagem que o usuário criou e retorna na tela.
 
 - **excludePersonagem**
 <br>
-Consegue excluir tanto os personagens da API quanto o cadastrado.
+Consegue excluir tanto os personagens da API quanto os cadastrados.
+
+- **getPersongameById(id)**
+<br>
+Consegue pegar os personagens da API e os cadastrados por ID, através do método "find".
+<br>
+O método "find" consegue achar os personagens pelo ID. O parâmetro recebe o "id" porque queremos trabalhar especificamente com os ID´s.
+<br>
+
+
+- **removerDuplicados**
+<br>
+Fizemos um método para remover os personagens que estivessem duplicados.
+O método "filter" consegue filtrar os personagens que estão duplicados e assim removê-los.
+
+- **atualizarLista(id, name, img, status)**
+<br>
+Atualiza a lista de personagens na page principal. Usamos o "If" para retornar os personagens que vão ser cadastrados assim, atualizando a página.
+
+### Botões (page.jsx)
+Explicando de modo geral, os botões de remover, editar e cadastar são "states" ou seja, são estados. Cada botão tem um estado, alguns são sofrer uma mudança de estado de "true ou false".
+
