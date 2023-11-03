@@ -1,197 +1,231 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap');
 
 .container {
-    padding-left: 17px;
-    padding-right: 17px;
-    background-color: #212121; /* Vermelho escuro associado ao tema Akatsuki */
-    background-size: cover; /* Cobrir todo o elemento */
-    background-repeat: no-repeat;
-    background-position: center center; /* Centraliza a imagem horizontal e verticalmente */
-    height: 100%; /* Define a altura do contêiner como 100% da altura da janela de visualização */
+  padding-left: 17px;
+  padding-right: 17px;
+  background-color: #212121;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
 }
-  
-  .title {
-    color: #fff;
-    text-align: center;
-    font-family: 'Archivo Black', sans-serif; /* Use a fonte importada */
-    font-size: 36px; /* Tamanho de fonte maior */
-    margin-bottom: 20px;
+
+.title {
+  color: #fff;
+  text-align: center;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
-  
-  .space {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Define 3 colunas com tamanho mínimo de 250px */
-    gap: 20px;
-  }
-  
-  .card {
-    background-color: #333;
-    color: #fff;
-    border-radius: 8px;
-    padding: 20px; /* Aumente o espaçamento interno */
-    text-align: center;
-    margin: 10px;
-    box-shadow: 8px 8px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 8px 8px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 8px 8px 5px 0px rgba(0,0,0,0.75);
-    border: 1px solid rgb(43, 41, 41);
-    transition: background-color 0.3s, transform 0.3s;
+
+.space {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 1px solid rgb(43, 41, 41);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .card:hover {
-    background-color: #8C101C;
-    transform: scale(1.05);
+  background-color: #8C101C;
+  transform: scale(1.05);
 }
 
-  
-  .li {
-    margin-bottom: 10px;
-    font-size: 20px;
-  }
-  
-  .img {
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    margin: 0 auto; /* Centralizar horizontalmente */
-    display: block; /* Converte a imagem em um elemento de bloco */
-    margin-bottom: 10px;
-    border: 1px solid #444; /* Adicionar uma borda aos cards */
-    object-fit: cover; /* Redimensionar a imagem para cobrir o espaço disponível */
-  }
-  .fundo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center;
-  }
-  .status {
-    font-style: italic;
-    margin-bottom: 10px;
-  }
-  
-  .button {
-    background: #8c101c;
-    color: #fff;
-    border: 15px solid #222122; /* Adicione uma borda de 2px sólida com uma cor específica */
-    padding: 15px 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-  
-  
-  
-  .Renderbutton {
-    background: #8c101c; /* Vermelho escuro associado ao tema Akatsuki */
-    color: #ffffff; /* Branco */
-    border: none;
-    padding: 20px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 20px;
-    transition: background-color 0.3s; /* Adicione uma transição de cor ao passar o mouse */
+
+.li {
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-  
-  .Renderbutton:hover {
-    background: #4d060d; /* Altere a cor de fundo ao passar o mouse */
-  }
-  /* Estilos específicos para telas menores, como tablets e smartphones */
-
-
-  
- /* Estilos para o formulário de cadastro */
-.cadastro {
-background-color: #212121; /* Fundo escuro */
-max-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 300px;
-padding-top: 22px;
+.img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+  object-fit: cover;
 }
 
-.forms {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 20px;
-padding-top: 30px;
+.fundo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
 }
 
-.input {
-padding: 10px;
-margin: 10px;
-border-radius: 5px;
-border: none;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-max-width: 300px;
-width: 100%;
-background: #444; /* Cor de fundo para destacar os campos de entrada */
-color: #fff; /* Cor do texto */
+.status {
+  font-style: italic;
+  margin-bottom: 10px;
 }
 
 .button {
-background: #8c101c; /* Vermelho escuro associado ao tema Akatsuki */
-color: #ffffff; /* Texto branco */
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-cursor: pointer;
-margin: 10px 0;
-transition: background-color 0.3s; /* Transição suave ao passar o mouse */
+  background: #8c101c;
+  color: #fff;
+  border: 15px solid #222122;
+  padding: 15px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+
+.Renderbutton {
+  background: #8c101c;
+  color: #ffffff;
+  border: none;
+  padding: 20px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+
+.Renderbutton:hover {
+  background: #4d060d;
+}
+
+
+
+
+.cadastro {
+  background-color: #212121;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  background: #444;
+  color: #fff;
+}
+
+.inputpesquisar {
+  padding: 10px;
+  padding-left: 65px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  background: #444;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.buscar{
+  margin-left: 500px
+}
+.button {
+  background: #8c101c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background-color 0.3s;
 }
 
 .button:hover {
-background: #4d060d; /* Altere a cor de fundo ao passar o mouse */
+  background: #4d060d;
 }
 
 .Renderbutton {
-background: #8c101c;
-color: #ffffff;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-cursor: pointer;
-margin: 0 auto;
-display: block;
-margin-bottom: 20px;
-transition: background-color 0.3s;
+  background: #8c101c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
 }
 
 .Renderbutton:hover {
-background: #4d060d;
+  background: #4d060d;
 }
-/* Estilos para o card */
+
 .cardzinho {
-background: #333; /* Cor de fundo escura */
-width: 600px;
-padding: 20px;
-margin: 0 auto;
-border-radius: 10px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #333;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-
 
 @media (max-width: 768px) {
   .space {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Redefina o layout para telas menores */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
   .card {
-      padding: 8px; /* Reduza o espaçamento interno */
-      margin: 5px;
+    padding: 8px;
+    margin: 5px;
   }
 
   .title {
-      font-size: 24px;
+    font-size: 24px;
   }
+  .buscar{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .forms {
+    padding: 10px;
+  }
+
+  .input, .inputpesquisar {
+    max-width: 95%;
+  }
+
+  .button, .Renderbutton {
+    padding: 8px 16px;
+    margin: 5px 0;
+    
+  }
+
+  .cardzinho {
+    width: 90%;
+  }
+
 }
