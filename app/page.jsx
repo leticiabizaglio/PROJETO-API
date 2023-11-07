@@ -104,7 +104,7 @@ export default function Home() {
           <div className={styles.buscar}>
             <input className={styles.inputpesquisar} type="text" placeholder="Pesquisar personagem" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); searchPersonagem(e.target.value); }} />
             </div>
-            <button onClick={() => setRender(!render)} className={styles.Renderbutton}>ICON 2</button>
+            <button onClick={() => setRender(!render)} className={styles.Renderbutton}>Cadastrar</button>
             <div className={styles.space}>{listaPersonagem && (
               listaPersonagem.map((personagem) => (
                 <div key={personagem.id} className={styles.card}>
@@ -123,7 +123,7 @@ export default function Home() {
         ) : (
 
           <div className={styles.cadastro}>
-            <button onClick={() => setRender(!render)} className={styles.Renderbutton}>ICON 1</button>
+            <button onClick={() => setRender(!render)} className={styles.Renderbutton}>Exibir Dados</button>
             <div className={styles.cardzinho}>
               <div className={styles.forms}>
                 <input className={styles.input} type='text' placeholder='Nome do personagem' value={name} onChange={(p) => setName(p.target.value)} />
